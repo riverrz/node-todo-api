@@ -1,4 +1,4 @@
-const {mongoose} = require("../db/mongoose");
+const { mongoose } = require("../db/mongoose");
 
 var Todo = mongoose.model("Todo", {
   text: {
@@ -18,5 +18,5 @@ var Todo = mongoose.model("Todo", {
 });
 
 module.exports = {
-    Todo
-}
+  Todo
+};

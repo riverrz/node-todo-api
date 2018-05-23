@@ -1,4 +1,4 @@
-const {mongoose} = require("../db/mongoose");
+const { mongoose } = require("../db/mongoose");
 
 var User = mongoose.model("User", {
   email: {
@@ -10,5 +10,5 @@ var User = mongoose.model("User", {
 });
 
 module.exports = {
-    User
-}
+  User
+};
