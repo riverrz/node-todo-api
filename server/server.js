@@ -38,16 +38,18 @@ app.get("/todos", (req, res) => {
 
 app.get("/todos/:id", (req, res) => {
   if (!ObjectID.isValid(req.params.id)) {
-    return res.send("Invalid Id passed");
+    return res.status(400).send();
   }
-  Todo.findById(req.params.id).then(todo => {
-    if (!todo) {
-      return res.status(404).send("Cannot find a todo by that id");
-    }
-    res.send(todo);
-  }).catch((e)=> {
-    res.send("Couldn't fetch the todo");
-  })
+  Todo.findById(req.params.id)
+    .then(todo => {
+      if (!todo) {
+        return res.status(404).send();
+      }
+      res.send({ todo });
+    })
+    .catch(e => {
+      res.status(400).send();
+    });
 });
 
 app.listen(3000, () => {
